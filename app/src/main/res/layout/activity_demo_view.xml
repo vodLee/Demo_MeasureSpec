@@ -1,192 +1,291 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".DemoViewActivity">
+    android:orientation="vertical"
+    android:scrollbars="none">
 
-    <TextView
-        android:id="@+id/tv_demo_view_width"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="View width:"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/tv_demo_view_height"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".DemoViewActivity">
 
-    <TextView
-        android:id="@+id/tv_demo_view_height"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="View height:"
-        app:layout_constraintLeft_toRightOf="@id/tv_demo_view_width"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.luuyi.measurespec.TestViewGroup
+            android:id="@+id/layout_demo_view_group"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:background="#EEE"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_demo_view_measure_width_spec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:padding="8dp"
-        android:text="Measure width Spec"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_demo_view_width" />
+        <TextView
+            android:id="@+id/tv_demo_view_width"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="8dp"
+            android:text="View width:"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_demo_view_height"
+            app:layout_constraintTop_toBottomOf="@id/layout_demo_view_group" />
 
-    <RadioGroup
-        android:id="@+id/rg_demo_view_measure_width_spec_mode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_demo_view_measure_width_spec">
+        <TextView
+            android:id="@+id/tv_demo_view_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="View height:"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_demo_view_width"
+            app:layout_constraintLeft_toRightOf="@id/tv_demo_view_width"
+            app:layout_constraintRight_toRightOf="parent" />
 
-        <RadioButton
-            android:id="@+id/rbtn_demo_view_measure_width_spec_unspecified"
+        <TextView
+            android:id="@+id/tv_demo_view_measure_width_spec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="8dp"
+            android:text="Measure width Spec"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_demo_view_width" />
+
+        <RadioGroup
+            android:id="@+id/rg_demo_view_measure_width_spec_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_demo_view_measure_width_spec">
+
+            <RadioButton
+                android:id="@+id/rbtn_demo_view_measure_width_spec_unspecified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_stroke_black_1"
+                android:button="@null"
+                android:checked="true"
+                android:padding="8dp"
+                android:text="UNSPECIFIED"
+                android:textColor="@color/color_selected_black_33_unselected_gray_99" />
+
+            <RadioButton
+                android:id="@+id/rbtn_demo_view_measure_width_spec_at_most"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/bg_stroke_black_1"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="AT_MOST"
+                android:textColor="@color/color_selected_black_33_unselected_gray_99" />
+
+            <RadioButton
+                android:id="@+id/rbtn_demo_view_measure_width_spec_exactly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_stroke_black_1"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="EXACTLY"
+                android:textColor="@color/color_selected_black_33_unselected_gray_99" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_demo_view_measure_width_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:text="Measure width(px):"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/et_demo_view_measure_width_spec_size"
+            app:layout_constraintTop_toBottomOf="@id/rg_demo_view_measure_width_spec_mode" />
+
+        <EditText
+            android:id="@+id/et_demo_view_measure_width_spec_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_stroke_black_1"
-            android:button="@null"
-            android:checked="true"
+            android:gravity="center"
+            android:hint="Measure width size"
+            android:inputType="number"
+            android:minWidth="160dp"
             android:padding="8dp"
-            android:text="UNSPECIFIED"
-            android:textColor="@color/color_selected_black_33_unselected_gray_cc" />
+            android:textColorHint="#CCC"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_demo_view_measure_width_size"
+            app:layout_constraintLeft_toRightOf="@id/tv_demo_view_measure_width_size"
+            app:layout_constraintRight_toRightOf="parent" />
 
-        <RadioButton
-            android:id="@+id/rbtn_demo_view_measure_width_spec_at_most"
+        <TextView
+            android:id="@+id/tv_demo_view_measure_height_spec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/bg_stroke_black_1"
-            android:button="@null"
+            android:layout_marginTop="24dp"
             android:padding="8dp"
-            android:text="AT_MOST"
-            android:textColor="@color/color_selected_black_33_unselected_gray_cc" />
+            android:text="Measure height Spec"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_demo_view_measure_width_size" />
 
-        <RadioButton
-            android:id="@+id/rbtn_demo_view_measure_width_spec_exactly"
+        <RadioGroup
+            android:id="@+id/rg_demo_view_measure_height_spec_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_stroke_black_1"
-            android:button="@null"
-            android:padding="8dp"
-            android:text="EXACTLY"
-            android:textColor="@color/color_selected_black_33_unselected_gray_cc" />
-    </RadioGroup>
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_demo_view_measure_height_spec">
 
-    <TextView
-        android:id="@+id/tv_demo_view_measure_width_size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:text="Measure width:"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/et_demo_view_measure_width_spec_size"
-        app:layout_constraintTop_toBottomOf="@id/rg_demo_view_measure_width_spec_mode" />
+            <RadioButton
+                android:id="@+id/rbtn_demo_view_measure_height_spec_unspecified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_stroke_black_1"
+                android:button="@null"
+                android:checked="true"
+                android:padding="8dp"
+                android:text="UNSPECIFIED"
+                android:textColor="@color/color_selected_black_33_unselected_gray_99" />
 
-    <EditText
-        android:id="@+id/et_demo_view_measure_width_spec_size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_stroke_black_1"
-        android:gravity="center"
-        android:hint="Measure width size"
-        android:minWidth="160dp"
-        android:padding="8dp"
-        android:textColorHint="#CCC"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/tv_demo_view_measure_width_size"
-        app:layout_constraintLeft_toRightOf="@id/tv_demo_view_measure_width_size"
-        app:layout_constraintRight_toRightOf="parent" />
+            <RadioButton
+                android:id="@+id/rbtn_demo_view_measure_height_spec_at_most"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/bg_stroke_black_1"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="AT_MOST"
+                android:textColor="@color/color_selected_black_33_unselected_gray_99" />
 
-    <TextView
-        android:id="@+id/tv_demo_view_measure_height_spec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:padding="8dp"
-        android:text="Measure height Spec"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_demo_view_measure_width_size" />
+            <RadioButton
+                android:id="@+id/rbtn_demo_view_measure_height_spec_exactly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_stroke_black_1"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="EXACTLY"
+                android:textColor="@color/color_selected_black_33_unselected_gray_99" />
+        </RadioGroup>
 
-    <RadioGroup
-        android:id="@+id/rg_demo_view_measure_height_spec_mode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_demo_view_measure_height_spec">
-
-        <RadioButton
-            android:id="@+id/rbtn_demo_view_measure_height_spec_unspecified"
+        <TextView
+            android:id="@+id/tv_demo_view_measure_height_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_stroke_black_1"
-            android:button="@null"
-            android:checked="true"
+            android:layout_marginTop="8dp"
             android:padding="8dp"
-            android:text="UNSPECIFIED"
-            android:textColor="@color/color_selected_black_33_unselected_gray_cc" />
+            android:text="Measure height(px):"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/et_demo_view_measure_height_spec_size"
+            app:layout_constraintTop_toBottomOf="@id/rg_demo_view_measure_height_spec_mode" />
 
-        <RadioButton
-            android:id="@+id/rbtn_demo_view_measure_height_spec_at_most"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/bg_stroke_black_1"
-            android:button="@null"
-            android:padding="8dp"
-            android:text="AT_MOST"
-            android:textColor="@color/color_selected_black_33_unselected_gray_cc" />
-
-        <RadioButton
-            android:id="@+id/rbtn_demo_view_measure_height_spec_exactly"
+        <EditText
+            android:id="@+id/et_demo_view_measure_height_spec_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_stroke_black_1"
-            android:button="@null"
+            android:gravity="center"
+            android:hint="Measure height size"
+            android:inputType="number"
+            android:minWidth="160dp"
             android:padding="8dp"
-            android:text="EXACTLY"
-            android:textColor="@color/color_selected_black_33_unselected_gray_cc" />
-    </RadioGroup>
+            android:textColorHint="#CCC"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_demo_view_measure_height_size"
+            app:layout_constraintLeft_toRightOf="@id/tv_demo_view_measure_height_size"
+            app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_demo_view_measure_height_size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:text="Measure height:"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/et_demo_view_measure_height_spec_size"
-        app:layout_constraintTop_toBottomOf="@id/rg_demo_view_measure_height_spec_mode" />
+        <TextView
+            android:id="@+id/tv_demo_view_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="8dp"
+            android:text="Content:"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/et_demo_view_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_demo_view_measure_height_size" />
 
-    <EditText
-        android:id="@+id/et_demo_view_measure_height_spec_size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_stroke_black_1"
-        android:gravity="center"
-        android:hint="Measure height size"
-        android:minWidth="160dp"
-        android:padding="8dp"
-        android:textColorHint="#CCC"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@id/tv_demo_view_measure_height_size"
-        app:layout_constraintLeft_toRightOf="@id/tv_demo_view_measure_height_size"
-        app:layout_constraintRight_toRightOf="parent" />
+        <EditText
+            android:id="@+id/et_demo_view_content"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_stroke_black_1"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:text="Demo View"
+            android:textColorHint="#CCC"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_demo_view_content"
+            app:layout_constraintLeft_toRightOf="@id/tv_demo_view_content"
+            app:layout_constraintRight_toRightOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_demo_view_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="8dp"
+            android:text="View Type"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_demo_view_content" />
+
+        <RadioGroup
+            android:id="@+id/rg_demo_view_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_demo_view_type">
+
+            <RadioButton
+                android:id="@+id/rbtn_demo_view_type_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_stroke_black_1"
+                android:button="@null"
+                android:checked="true"
+                android:padding="8dp"
+                android:text="NORMAL"
+                android:textColor="@color/color_selected_black_33_unselected_gray_99" />
+
+            <RadioButton
+                android:id="@+id/rbtn_demo_view_type_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/bg_stroke_black_1"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="TEXT VIEW"
+                android:textColor="@color/color_selected_black_33_unselected_gray_99" />
+
+            <RadioButton
+                android:id="@+id/rbtn_demo_view_type_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_stroke_black_1"
+                android:button="@null"
+                android:padding="8dp"
+                android:text="EDIT TEXT"
+                android:textColor="@color/color_selected_black_33_unselected_gray_99" />
+        </RadioGroup>
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
