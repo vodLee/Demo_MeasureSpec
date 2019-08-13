@@ -10,7 +10,7 @@ UNSPECIFIED | 0（0x00000000） | 父控件没有给子视图任何限制，子�
 EXACTLY | 1073741824（0x40000000） | 表示父控件已经确切的指定了子视图的大小。
 AT_MOST | -2147483648（0x80000000） | 表示子查看具体大小没有尺寸限制，但是存在上限，上限一般为父视图大小。
 
-* 简单应用(从我的特权金页面截取的代码)
+* 简单应用
     ```
             int w = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
             int h = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
@@ -133,7 +133,7 @@ AT_MOST | -2147483648（0x80000000） | 表示子查看具体大小没有尺寸�
 * onMeasure() 如何调用的 MeasureSpec
     * 以view方法举例  
         ```
-        // 
+        // 自定义view时，对于view的重新计算，需要重写此方法
         protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
             setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),
                     getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));
@@ -160,5 +160,23 @@ AT_MOST | -2147483648（0x80000000） | 表示子查看具体大小没有尺寸�
             return (mBackground == null) ? mMinWidth : max(mMinWidth, mBackground.getMinimumWidth());
         }
         ```
-    
-    > 思考：不同的ViewGroup，都会通过什么方式去 measureWidth & measureHeight
+
+* View TextView EditText 三种view在不同情况下对于View的展示
+    > DemoViewActivity 演示，具体逻辑可以看下源码
+
+* 自定义 ViewGroup 简单实现通过 onLayout 自定义布局位置
+    >  TestViewGroup
+    ```
+        // 所有的view都展示在viewgroup中间
+        final int count = getChildCount();
+
+        for (int i = 0; i < count; i++) {
+            View child = getChildAt(i);
+            if (child.getVisibility() != GONE) {
+                child.measure(widthMeasureSpec, heightMeasureSpec);
+                int width = child.getMeasuredWidth();
+                int height = child.getMeasuredHeight();
+                child.layout((r - l - width) / 2, (b - t - height) / 2, (r - l + width) / 2, (b - t + height) / 2);
+            }
+        }
+    ```

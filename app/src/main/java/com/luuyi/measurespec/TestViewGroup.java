@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
+ * 自定义 ViewGroup
+ * 将所有子控件居中展示
+ *
  * @author liyi
  * @date 2019/8/13 10:01
  */
@@ -37,6 +40,7 @@ public class TestViewGroup extends ViewGroup {
         //  cached.  Apply the cached values to the children.
         final int count = getChildCount();
 
+        // 所有的view都展示在viewgroup中间
         for (int i = 0; i < count; i++) {
             View child = getChildAt(i);
             if (child.getVisibility() != GONE) {
