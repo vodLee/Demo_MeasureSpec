@@ -1,6 +1,5 @@
 package com.luuyi.measurespec;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
